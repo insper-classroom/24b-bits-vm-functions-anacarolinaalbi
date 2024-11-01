@@ -1,2 +1,41 @@
-// implemente a funcao mult que recebe dois argumentos
-// e retorna a multiplicacao
+
+function mult 0
+
+push argument 0
+pop local 0  // x
+push argument 1
+pop local 1  // y
+
+
+push constant 0
+pop local 2  
+
+
+push local 1
+push constant 0
+eq
+if-goto END
+
+label LOOP_START
+
+push local 1
+push constant 0
+eq
+if-goto END
+
+push local 2       // carrega o resultado atual
+push local 0       // carrega o valor de x
+add                // result + x
+pop local 2        // atualiza o resultado
+
+// Decrementa y em 1
+push local 1
+push constant 1
+sub
+pop local 1        // armazena y - 1
+
+goto LOOP_START
+
+label END
+push local 2       
+return
